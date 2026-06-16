@@ -5,7 +5,7 @@
 
 pkgname=sonic-frameworks-doctools
 pkgver=6.27.0
-pkgrel=1
+pkgrel=2
 pkgdesc='Documentation generation from docbook'
 arch=(x86_64)
 url='https://github.com/Sonic-DE/sonic-frameworks-doctools'
@@ -30,6 +30,7 @@ sha256sums=('e11c8f24e389787429b819645b763f35c8f8533ea48dc7318699070fae08866b')
 
 build() {
   cmake -B build -S $pkgname-$pkgver \
+    -DCMAKE_INSTALL_LIBDIR=lib \
     -DBUILD_TESTING=OFF \
     -DDocBookXSL_DIR=/usr/share/xml/docbook/xsl-stylesheets-nons
   cmake --build build
